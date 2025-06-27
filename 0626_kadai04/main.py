@@ -9,7 +9,6 @@ while main_slime.position < 11:
 SLIME_DATA = (
     ("＝", "〇", 1),
     ("～", "☆", 2),
-    ("ー", "★", 3),
 )
 
 slimes = []
