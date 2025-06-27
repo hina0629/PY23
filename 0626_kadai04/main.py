@@ -49,14 +49,10 @@ while True:
         slime.run()
         time.sleep(0.1)
         
-        if winner is not None and slime.position >= 11:
+        if slime.position > 10:
             winner += slime.mark
             winner_number.append(slime.number)
-
-        elif slime.position >= 11:
             judge = True
-            winner = slime.mark
-            winner_number.append(slime.number)
 
     if judge:
         print("ーーーー５ーーーー10")
