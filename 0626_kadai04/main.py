@@ -1,10 +1,10 @@
 import slime
 import time
 
-main_slime = slime.Slime("＝", "〇", 1)
+# main_slime = slime.Slime("＝", "〇", 1)
 
-while main_slime.position < 11:
-    main_slime.run()
+# while main_slime.position < 11:
+#     main_slime.run()
 
 SLIME_DATA = (
     ("＝", "〇", 1),
@@ -41,7 +41,7 @@ winner = ""
 
 
 None
-winner_number = []
+winner_numbers = []
 
 while True:
     print("ーーーー５ーーーー10")
@@ -51,8 +51,8 @@ while True:
         time.sleep(0.1)
         
         if slime.position > 10:
-            winner += slime.mark
-            winner_number.append(slime.number)
+            winner += ( slime.mark + " " )
+            winner_numbers.append(slime.number)
             judge = True
 
     if judge:
@@ -65,12 +65,12 @@ print(winner)
 
 print(f"You bet on {slimes[int(bet) - 1].mark}")
 
-if len(winner_number) > 1:
-    for i in winner_number:
-        if i == int(bet):
-            print("You win!")
-            break
-elif int(bet) == winner_number[0]:
-    print("You win!")
-else:
-    print("You lose!")
+judge = False
+
+for i in winner_numbers:
+    if i == int(bet):
+        print("You win!")
+        judge = True
+
+if not judge:
+    print("You lose...")
