@@ -68,10 +68,20 @@ print(f"You bet on {slimes[int(bet) - 1].mark}")
 
 judge = False
 
-for i in winner_numbers:
-    if i == int(bet):
-        print("You win!")
-        judge = True
-
-if not judge:
+if int(bet) in winner_numbers:
+    print("You win!")
+else:
     print("You lose...")
+
+
+
+
+
+
+# for i in winner_numbers:
+#     if i == int(bet):
+#         print("You win!")
+#         judge = True
+
+# if not judge:
+#     print("You lose...")
