@@ -9,7 +9,7 @@ import time
 SLIME_DATA = (
     ("＝", "〇", 1),
     ("～", "☆", 2),
-    ("ー", "★", 3),
+    # ("ー", "★", 3),
 )
 
 slimes = []
@@ -28,6 +28,7 @@ while True:
         break
 
 print("[On your mark]")
+time.sleep(1)
 
 for i in range(3, 0, -1):
     print(i)
