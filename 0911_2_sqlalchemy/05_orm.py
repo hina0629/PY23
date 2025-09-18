@@ -46,3 +46,8 @@ with Session(engine) as session:
     users = session.query(User).all()
     for user in users:
         print(user.id, user.name, user.age, user.address)
+
+    # .all()あり→全件一括取得＝スピード〇、メモリ×
+    #  →usersの形で、別のプログラムに受け渡すときに使う（ほぼこっち）。
+    # .all()なし→１行ずつ取得＝スピード×、メモリ〇
+    #　→データ量がものすごい多い（何千、何万の）ときに使う。
