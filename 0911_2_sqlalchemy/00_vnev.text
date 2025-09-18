@@ -1,0 +1,13 @@
+0911_sqlalchemy
+00_vnev
+仮想環境(virtual environment)
+1. VS Code起動
+2. File -> Open Folderで、
+   プロジェクトフォルダをターゲット
+   にして開く。
+3. Terminal -> New Terminal
+4. py -m venv venv を実行。
+5. venv/scripts/activate を実行。
+6. 各種インストール
+7. VS Code 右下の実行環境を
+   venvにする。

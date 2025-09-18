@@ -1,0 +1,10 @@
+SQL Alchemy
+RDBMSとの仲介を担うフレームワーク。
+・RDBMSによる差異を吸収
+・SQLインジェクション対策
+・以下、3つの実行手法がある。
+　①SQL文による実行
+  (②関数によるSQLの実行)
+　③ORM
+ 
+pip install sqlalchemy
