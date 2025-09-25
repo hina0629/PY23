@@ -76,3 +76,10 @@ with Session(engine) as session:
         func.count('*')
     ).select_from(User).scalar()
     print(count)
+
+    # .limit で取得件数絞り込み
+    # 2件まで表示
+    users = session.query(User).limit(2).all()
+    # .all じゃなくてもOKだけど、つけるなら .all は最後
+    for user in users:
+        print(user.id, user.name, user.age, user.address)
