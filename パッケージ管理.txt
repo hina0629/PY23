@@ -1,0 +1,12 @@
+●既存環境のパッケージ一覧ファイル化
+pip freeze > requirements.txt
+
+※「>」は、リダイレクトと呼ばれ、
+結果出力を標準出力(コンソール)から、
+切り替えるときに用いる。
+
+●requirements.txtを用いたパッケージのインストール
+pip install -r requirements.txt
+
+●requirements.txtを用いたパッケージの削除
+pip uninstall -r requirements.txt -y
