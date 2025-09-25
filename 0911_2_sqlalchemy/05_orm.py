@@ -114,5 +114,10 @@ with Session(engine) as session:
     for user in session.query(User).order_by(desc(User.id)).all():
         print(user.id, user.name, user.age, user.address)
 
+    # ORDER BY2
     for user in session.query(User).order_by(desc(User.name), asc(User.id)).all():
+        print(user.id, user.name, user.age, user.address)
+
+    # filter & ORDER BY
+    for user in session.query(User).order_by(desc(User.id)).all():
         print(user.id, user.name, user.age, user.address)
