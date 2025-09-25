@@ -18,14 +18,16 @@ class Base(DeclarativeBase):
 class User(Base):
     __tablename__ = 'user'
 
-    # autoincrementが以下でないと有効化されない。
-    # ※officialに書かれていない。officialではmapped_column(primary_key=True, autoincrement=True)だけど、効かない。
-    __table_args__ = {'sqlite_autoincrement': True}
-
-    id: Mapped[int] = mapped_column(primary_key=True)
+    id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
     name: Mapped[str] = mapped_column(String(20))
     age: Mapped[int]    # 特に指定がなければmapped_columnは不要。※= Columnは古い。
     address: Mapped[Optional[str]]  # Optionalでnull許容（defaultはNOT NULL）
+
+    # memo:実際に実行されるCREATE文に AUTO INCREMENT の記載がないが、
+    # 問題はない。これは、SQLiteが、INTのPRIMARY KEYは自動的に
+    # AUTO INCREMENTの扱いになるという仕様による。
+    # なので、「, autoincrement=True」自体も不要だが、
+    # もし自動採番したくない場合には、これをFalseとする必要がある。
 
 # テーブルの生成
 Base.metadata.create_all(bind=engine)
