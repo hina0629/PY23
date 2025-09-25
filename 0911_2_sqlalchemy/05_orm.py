@@ -91,3 +91,7 @@ with Session(engine) as session:
     users = session.query(User).limit(2).offset(1).all()
     for user in users:
         print(user.id, user.name, user.age, user.address)
+
+    # 列指定取得
+    for user in session.query(User.id, User.name).all():
+        print(user.id, user.name)
