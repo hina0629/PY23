@@ -127,3 +127,8 @@ with Session(engine) as session:
     user = session.query(User).filter(User.id == 3).first()
     user.address = '千葉'
     session.commit()
+
+# 削除
+with Session(engine) as session:
+    user = session.query(User).filter(User.id == 4).delete()
+    session.commit()
