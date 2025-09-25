@@ -65,5 +65,7 @@ with Session(engine) as session:
     # チェック処理が必要
 
     # .scalar でスカラー（単一）値取得
-    count = session.query(func.count(User.id)).scalar()
+    count = session.query(
+        func.count(User.id)
+        ).scalar()
     print(count)
