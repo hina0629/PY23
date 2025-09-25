@@ -103,3 +103,8 @@ with Session(engine) as session:
     # AND
     for user in session.query(User).filter(User.id == 3, User.name == 'a').all():
         print(user.id, user.name, user.age, user.address)
+    
+    # IN
+    ids = [2, 3, 5]
+    for user in session.query(User).filter(User.id.in_(ids)).all():
+        print(user.id, user.name, user.age, user.address)
