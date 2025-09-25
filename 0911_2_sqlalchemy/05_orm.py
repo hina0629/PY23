@@ -63,3 +63,7 @@ with Session(engine) as session:
     # 0件の場合Noneのため、
     # ガチガチに組むなら if user: といった
     # チェック処理が必要
+
+    # .scalar でスカラー（単一）値取得
+    count = session.query(func.count(User.id)).scalar()
+    print(count)
