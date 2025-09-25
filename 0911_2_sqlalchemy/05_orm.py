@@ -60,3 +60,6 @@ with Session(engine) as session:
     # .first で最初の１件のみ取得
     user = session.query(User).first()
     print(user.id, user.name, user.age, user.address)
+    # 0件の場合Noneのため、
+    # ガチガチに組むなら if user: といった
+    # チェック処理が必要
