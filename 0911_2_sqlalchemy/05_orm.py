@@ -1,5 +1,5 @@
 # 05_orm.py
-from sqlalchemy import create_engine, String, func, desc
+from sqlalchemy import create_engine, String, func, asc, desc
 from sqlalchemy.orm import Session, DeclarativeBase, Mapped, mapped_column
 from typing import Optional
 
@@ -107,4 +107,12 @@ with Session(engine) as session:
     # IN
     ids = [2, 3, 5]
     for user in session.query(User).filter(User.id.in_(ids)).all():
+        print(user.id, user.name, user.age, user.address)
+    
+    # ORDER BY
+    # もし入れるなら.filterの後に書く
+    for user in session.query(User).order_by(desc(User.id)).all():
+        print(user.id, user.name, user.age, user.address)
+
+    for user in session.query(User).order_by(desc(User.name), asc(User.id)).all():
         print(user.id, user.name, user.age, user.address)
