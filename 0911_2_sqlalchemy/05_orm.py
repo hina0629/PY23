@@ -34,7 +34,7 @@ Base.metadata.create_all(bind=engine)
 
 # 登録
 # with Session(engine) as session:
-#     user = User(name='a', age=20, address='東京')
+#     user = User(name='b', age=25, address='神奈川')
 #     session.add(user)
 #     session.commit()
 
@@ -95,3 +95,7 @@ with Session(engine) as session:
     # 列指定取得
     for user in session.query(User.id, User.name).all():
         print(user.id, user.name)
+
+    # .filter で条件指定(WHERE)
+    for user in session.query(User).filter(User.id == 2).all():
+        print(user.id, user.name, user.age, user.address)
