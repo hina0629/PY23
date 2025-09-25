@@ -69,3 +69,10 @@ with Session(engine) as session:
         func.count(User.id)
         ).scalar()
     print(count)
+
+    # COUNT(*)は↓
+    count = session.query(
+        # count('*')だと全部の列って意味だからどのテーブルかわからない → .select_from(User) が必要
+        func.count('*')
+    ).select_from(User).scalar()
+    print(count)
