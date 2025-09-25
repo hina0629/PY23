@@ -83,3 +83,11 @@ with Session(engine) as session:
     # .all じゃなくてもOKだけど、つけるなら .all は最後
     for user in users:
         print(user.id, user.name, user.age, user.address)
+
+    # .limit().offset() で途中＆取得件数絞り込み
+    # 2件まで表示
+    # 0□1□2□3 だから↓だと２番目と３番目が取れる
+    # ほしい数-1 * 10 でできる
+    users = session.query(User).limit(2).offset(1).all()
+    for user in users:
+        print(user.id, user.name, user.age, user.address)
