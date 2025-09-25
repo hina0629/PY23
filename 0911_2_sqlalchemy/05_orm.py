@@ -56,3 +56,7 @@ with Session(engine) as session:
     # ※別件、こっち(.all()なし)はsessionのwith文の中で用いる縛りがある。
     # memo: 遅延closeや、クエリの遅延評価などで、with文の外でも動いてしまう
     # ことがあるが、これはたまたまなのでNG。
+
+    # .first で最初の１件のみ取得
+    user = session.query(User).first()
+    print(user.id, user.name, user.age, user.address)
