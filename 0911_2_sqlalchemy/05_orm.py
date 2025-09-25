@@ -121,3 +121,9 @@ with Session(engine) as session:
     # filter & ORDER BY
     for user in session.query(User).filter(User.name == 'a').order_by(desc(User.id)).all():
         print(user.id, user.name, user.age, user.address)
+
+# 更新
+with Session(engine) as session:
+    user = session.query(User).filter(User.id == 3).first()
+    user.address = '千葉'
+    session.commit()
