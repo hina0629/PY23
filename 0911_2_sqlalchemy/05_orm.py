@@ -99,3 +99,7 @@ with Session(engine) as session:
     # .filter で条件指定(WHERE)
     for user in session.query(User).filter(User.id == 2).all():
         print(user.id, user.name, user.age, user.address)
+    
+    # AND
+    for user in session.query(User).filter(User.id == 3, User.name == 'a').all():
+        print(user.id, user.name, user.age, user.address)
